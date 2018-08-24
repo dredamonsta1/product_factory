@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>product factory</title>
+      <!--import angular and app.js in that order*********-->
+      <script src="angular.min.js"></script>
+      <script src="app.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper-div" ng-controller="productsController">
+        <label>
+            <h1>Name:</h1>
+        <input type="text" ng-model="newProduct.name">
+            <p>{{newProduct.name}}</p>
+        </label>
+        <label>
+            <h1>Price: <span>{{errors.price}}</span></h1>
+        <input type="text" ng-model="newProduct.price">
+            <p>{{newProduct.price}}</p>
+        </label>
+
+        <button ng-click="addProduct()">Add Product</button>
+
+        <table>
+            <tr>
+                <th>Name:</th>
+                <th ng-click="sortMe()">Price:({{sortOrder}})</th>
+                <th>Action:</th>
+            </tr>
+            <tr ng-repeat="product in products">
+                <td>{{product.name}}</td>
+                <td>${{product.price}}</td>
+                <td><button ng-click="delete($index)">Delete Product</button></td>
+
+            </tr>
+        </table>
+
+
+
+  </div>
+
+  </body>
+</html>
